@@ -1,2 +1,1 @@
-# populous-hcp
-This is Populous
+This is an example application.
