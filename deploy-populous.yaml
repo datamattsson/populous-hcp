@@ -25,6 +25,8 @@ spec:
       containers:
         - image: drajen/populous:testing
           imagePullPolicy: Always
+          imagePullSecrets:
+          - name: regcred
           name: populous
           env:
             - name: POPULOUS_PASSWORD
@@ -63,7 +65,7 @@ spec:
         app: pldb
     spec:
       containers:
-        - image: drajen/pldb
+        - image: 081773867318.dkr.ecr.us-west-2.amazonaws.com/eks-p-ecrdo-rxe0h3nlqkan:populous.master..2019-11-16.21.14.13.e8cc1b12
           name: pldb
           env:
             - name: MYSQL_ROOT_PASSWORD
