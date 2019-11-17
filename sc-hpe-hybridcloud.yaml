@@ -6,7 +6,7 @@ metadata:
 provisioner: hpe.com/nimble
 parameters:
   description: "Volume provisioned by HPE Volume Driver for Kubernetes FlexVolume Plugin"
-  perfpolicy: "default"
+  perfPolicy: "default"
   folder: "Onprem"
   protectionTemplate: "Local48-Cloud96"
   allowOverrides: perfPolicy,description

@@ -29,16 +29,16 @@ phases:
       - export AWS_SESSION_TOKEN="$(echo ${CREDENTIALS} | jq -r '.Credentials.SessionToken')"
       - export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
-      # - kubectl delete -f deploy-populous-eks.yml || true
-      # - sed -i 's@REPLICA_STORE@'"$HCV_REPLICA_STORE"'@' deploy-populous-eks.yaml
-      # - sed -i 's@REPLICA_VOLUME@'"$HCV_REPLICA_VOLUME"'@' deploy-populous-eks.yaml
-      # - kubectl create -f deploy-populous-eks.yml
-      # - kubectl rollout status deploy populous
-      # - kubectl rollout status deploy pldb
-      # - curl -sf $STAGE_URL/api/_ping | jq
-      # - curl -sf $STAGE_URL/api/census | jq
-      # - curl -sf -XPOST $STAGE_URL/api/populous | jq
-      # - curl -sf $STAGE_URL/api/census | jq
+      - kubectl delete -f deploy-populous-eks.yml || true
+      - sed -i 's@REPLICA_STORE@'"$HCV_REPLICA_STORE"'@' deploy-populous-eks.yaml
+      - sed -i 's@REPLICA_VOLUME@'"$HCV_REPLICA_VOLUME"'@' deploy-populous-eks.yaml
+      - kubectl create -f deploy-populous-eks.yml
+      - kubectl rollout status deploy populous
+      - kubectl rollout status deploy pldb
+      - curl -sf $STAGE_URL/api/_ping | jq
+      - curl -sf $STAGE_URL/api/census | jq
+      - curl -sf -XPOST $STAGE_URL/api/populous | jq
+      - curl -sf $STAGE_URL/api/census | jq
       - printf '[{"name":"populous","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
 
 artifacts:
