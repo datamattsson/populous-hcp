@@ -26,4 +26,4 @@ WORKDIR /app/run
 ARG BUILD_NUMBER
 RUN echo -n $BUILD_NUMBER > VERSION
 
-CMD [ "gunicorn", "-b", "0.0.0.0", "-t", "300", "--threads", "8", "--keep-alive", "30", "--max-requests", "10", "populous:api" ]
+CMD [ "gunicorn", "-b", "0.0.0.0", "-t", "300", "--threads", "8", "populous:api" ]
