@@ -3,6 +3,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pldb
+  annotations:
+    hpe.com/perfPolicy: "SQL Server"
+    hpe.com/description: "The Populous DB PVC"
 spec:
   accessModes:
     - ReadWriteOnce

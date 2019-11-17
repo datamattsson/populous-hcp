@@ -115,19 +115,3 @@ spec:
   - name: pldb
     protocol: TCP
     port: 3306
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: populous
-  labels:
-    app: populous
-spec:
-  selector:
-    app: populous
-  ports:
-  - name: populous
-    port: 80
-    targetPort: 8000
-    protocol: TCP
-  type: LoadBalancer
